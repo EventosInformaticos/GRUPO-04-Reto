@@ -95,7 +95,7 @@
           <div class="col-lg-8">
             <!-- formulario -->
             <div>
-              <form name="formulario" method="post" onsubmit="return validarFormulario()">
+              <form action="formulario.php" name="formulario" method="post" onsubmit="return validarFormulario()">
                 <!-- Datos personales -->
                 <fieldset class="container-fluid">
                   <legend>Datos Personales</legend>
@@ -104,7 +104,7 @@
                     <!-- nombre -->
                     <div class="col-md">
                       <label for="nombre" class="form-label">Nombre</label>
-                      <input type="text" id="nombre" class="form-control" placeholder="Nombre">
+                      <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
                     </div>
                     <!-- apellido -->
                     <div class="col-md">
@@ -139,19 +139,19 @@
                   <!-- checkboxes subeventos -->
                   <hr>
                   <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" id="desarrollo">
+                    <input type="checkbox" name="desa" value="desarrollo">
                     <label for="desarrollo">Desarrollo</label>
                   </div>
                   <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" id="programacion">
+                    <input type="checkbox" name="subeventos" value="programacion">
                     <label for="programacion">Programación</label>
                   </div>
                   <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" id="ingles">
+                    <input type="checkbox" name="subeventos" value="ingles">
                     <label for="ingles">Ingles para informáticos</label>
                   </div>
                   <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" id="fol">
+                    <input type="checkbox" name="subeventos" value="fol">
                     <label for="fol">Formación laboral para informáticos</label>
                   </div>
                   <hr>
