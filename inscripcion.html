@@ -86,15 +86,13 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Portfolio Details Section ======= -->
+    <!-- ======= formulario Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
         <!-- formulario -->
         <div class="row gy-4">
-
           <div class="col-lg-8">
             <!-- formulario -->
-            <div>
               <form action="formulario.php" name="formulario" method="post" onsubmit="return validarFormulario()">
                 <!-- Datos personales -->
                 <fieldset class="container-fluid">
@@ -104,18 +102,18 @@
                     <!-- nombre -->
                     <div class="col-md">
                       <label for="nombre" class="form-label">Nombre</label>
-                      <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                      <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
                     </div>
                     <!-- apellido -->
                     <div class="col-md">
                       <label for="apellido" class="form-label">Apellido</label>
-                      <input type="text" id="apellido" class="form-control" placeholder="Apellido">
+                      <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" required>
                     </div>
                   </div>
                   <!-- email -->
                   <div class="form-group my-1">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
                   </div>
                   <!-- movil y edad-->
                   <div class="row">
@@ -123,7 +121,7 @@
                     <div class="col">
                       <div class="form-group my-1">
                         <label for="movil" class="form-label">Movil</label>
-                        <input type="tel" minlength="9" maxlength="9" class="form-control" id="movil"
+                        <input type="tel" name="movil" minlength="9" maxlength="9" class="form-control" id="movil"
                           placeholder="movil">
                       </div>
                     </div>
@@ -131,28 +129,31 @@
                     <div class="col">
                       <div class="form-group my-1">
                         <label for="edad" class="form-label">Edad</label>
-                        <input type="" min="14" max="90" maxlength="2" id="edad" class="form-control"
-                          placeholder="edad">
+                        <input type="number" name="edad" min="14" max="90" maxlength="2" id="edad" class="form-control"
+                          placeholder="edad" required>
                       </div>
                     </div>
                   </div>
                   <!-- checkboxes subeventos -->
                   <hr>
-                  <div class="form-group my-1">
-                    <input type="checkbox" name="desa" value="desarrollo">
-                    <label for="desarrollo">Desarrollo</label>
-                  </div>
-                  <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" value="programacion">
-                    <label for="programacion">Programación</label>
-                  </div>
-                  <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" value="ingles">
-                    <label for="ingles">Ingles para informáticos</label>
-                  </div>
-                  <div class="form-group my-1">
-                    <input type="checkbox" name="subeventos" value="fol">
-                    <label for="fol">Formación laboral para informáticos</label>
+
+                  <div id="subeventosChecks">
+                    <div class="form-group my-1">
+                      <input type="checkbox" name="desarrollo" value="desarrollo">
+                      <label for="desarrollo">Desarrollo</label>
+                    </div>
+                    <div class="form-group my-1">
+                      <input type="checkbox" name="programacion" value="programacion">
+                      <label for="programacion">Programación</label>
+                    </div>
+                    <div class="form-group my-1">
+                      <input type="checkbox" name="ingles" value="ingles">
+                      <label for="ingles">Ingles para informáticos</label>
+                    </div>
+                    <div class="form-group my-1">
+                      <input type="checkbox" name="fol" value="fol">
+                      <label for="fol">Formación laboral para informáticos</label>
+                    </div>
                   </div>
                   <hr>
                   <!-- checkbox -->
@@ -174,7 +175,6 @@
                   <button type="submit" class="btn btn-primary my-1">inscribirse</button>
                 </fieldset>
               </form>
-            </div>
             <!-- end formulario -->
           </div>
         </div>
@@ -265,10 +265,18 @@
 
   <script>
     function validarFormulario() {
+      var y = (document.forms["formulario"]["desarrollo"].checked) 
+      || (document.forms["formulario"]["programacion"].checked) 
+      || (document.forms["formulario"]["ingles"].checked) 
+      || (document.forms["formulario"]["fol"].checked);
       var x = document.forms["formulario"]["condiciones"].checked;
 
       if (x == false) {
         alert("Tienes que aceptar los términos y condiciones");
+        return false;
+      }
+      if (y == false) {
+        alert("tienes que coger al menos un evento");
         return false;
       }
     }
