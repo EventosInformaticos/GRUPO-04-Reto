@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 10:40 AM
+-- Generation Time: Nov 11, 2022 at 09:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -233,7 +233,8 @@ ALTER TABLE `lugar`
 -- Indexes for table `participantes`
 --
 ALTER TABLE `participantes`
-  ADD PRIMARY KEY (`IdParticipante`);
+  ADD PRIMARY KEY (`IdParticipante`),
+  ADD UNIQUE KEY `Correo` (`Correo`);
 
 --
 -- Indexes for table `subeventos`
